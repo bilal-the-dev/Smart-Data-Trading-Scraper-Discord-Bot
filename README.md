@@ -15,8 +15,6 @@ git clone https://github.com/bilal-the-dev/Smart-Data-Trading-Scraper-Discord-Bo
 cd scraperBot
 ```
 
-````
-
 ### 2. Install Dependencies
 
 ```bash
@@ -56,7 +54,6 @@ SMART_DATA_REMEMBER_COOKIE=remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d
 npm run start
 ```
 
-
 ## 🧠 Features
 
 - Sends **new announcements only**, with embed-style formatting
@@ -70,8 +67,6 @@ npm run start
 
 ---
 
-
-
 ## 🛠 Built With
 
 - TypeScript
@@ -80,6 +75,3 @@ npm run start
 - HTML scraping + parsing
 
 ---
-
-
-````
