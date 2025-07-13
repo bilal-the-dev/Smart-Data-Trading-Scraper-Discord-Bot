@@ -61,7 +61,6 @@ npm run start
 - Includes:
 
   - Announcement type and color
-  - Author name and avatar
   - Timestamp (`<t:...:f>` format)
   - Clean alert titles
 
