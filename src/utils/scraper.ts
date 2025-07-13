@@ -20,7 +20,10 @@ export const scraperAndProcessAnnouncements = async (): Promise<void> => {
 
     console.log(`Fetched ${fetchedAnnouncements.length} announcements!`);
 
-    if (!cachedAnnouncementsIds.length) {
+    if (
+      process.env.NODE_ENV !== "development" && // if development, it wont add to cache
+      !cachedAnnouncementsIds.length
+    ) {
       console.log("First time adding in cache!");
       cachedAnnouncementsIds.push(...fetchedAnnouncements.map((a) => a.id));
       return;

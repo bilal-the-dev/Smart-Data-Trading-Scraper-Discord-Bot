@@ -1,6 +1,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
+      NODE_ENV: "production" | "development";
       DISCORD_WEBHOOK_URL: string;
       SMART_DATA_TRADING_URL: string;
       SMART_DATA_REMEMBER_COOKIE: string;

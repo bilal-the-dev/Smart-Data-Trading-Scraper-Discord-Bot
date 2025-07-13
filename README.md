@@ -28,12 +28,16 @@ npm install
 Create a `.env` file in the root directory with the following values:
 
 ```env
+NODE_ENV='production' | 'development'
 DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/xxx/your-webhook-id
 SMART_DATA_TRADING_URL=https://portal.smartdatatrading.com
 SMART_DATA_REMEMBER_COOKIE=remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiIxxxxx
 ```
 
 ### 🔑 Details:
+
+- **`NODE_ENV`**
+  If set to 'development', it'll send 10 alerts as test on startup
 
 - **`DISCORD_WEBHOOK_URL`**
   The webhook URL where the bot will send new announcements as Discord embeds.

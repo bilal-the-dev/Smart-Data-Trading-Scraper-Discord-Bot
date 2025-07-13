@@ -15,18 +15,19 @@ export const parseHtmlToJson = (html: string): AnnouncementResponse => {
 
 export const createAnnouncementEmbed = (a: Announcement) => {
   // Convert to Unix timestamp (in seconds, not milliseconds)
-  console.log(new Date(a.created_at));
 
   const unixTimestamp = Math.floor(new Date(a.created_at).getTime() / 1000);
-
   const cleanContent = sanitizeHtml(a.content, {
     allowedTags: [],
     allowedAttributes: {},
   });
+
+  const imageURL = cheerio.load(a.content)("img").attr("src");
   return {
     title: a.type.label,
     description: `${cleanContent}\n\n<t:${unixTimestamp}:f>`, // shows e.g. "July 11, 2025 at 11:32 PM"
     color: parseInt(a.type.label_color.replace("#", ""), 16),
+    ...(imageURL && { image: { url: imageURL } }),
   };
 };
 export const createErrorEmbed = (error: Error) => {
