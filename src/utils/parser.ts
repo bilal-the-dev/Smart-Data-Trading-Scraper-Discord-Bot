@@ -27,10 +27,6 @@ export const createAnnouncementEmbed = (a: Announcement) => {
     title: a.type.label,
     description: `${cleanContent}\n\n<t:${unixTimestamp}:f>`, // shows e.g. "July 11, 2025 at 11:32 PM"
     color: parseInt(a.type.label_color.replace("#", ""), 16),
-    author: {
-      name: `${a.user.first_name} ${a.user.last_name}`,
-      icon_url: a.user.profile_photo_url,
-    },
   };
 };
 export const createErrorEmbed = (error: Error) => {
