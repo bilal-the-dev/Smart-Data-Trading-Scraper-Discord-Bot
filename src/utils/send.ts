@@ -1,4 +1,6 @@
-export const sendToDiscord = async (embed: any): Promise<void> => {
+import { Embed } from "../typings/types.js";
+
+export const sendToDiscord = async (embed: Embed): Promise<void> => {
   try {
     const url = process.env.DISCORD_WEBHOOK_URL.replace("api", "api/v10");
     const res = await fetch(url, {

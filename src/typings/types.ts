@@ -5,6 +5,13 @@ export interface customFetchOptions {
   additionalHeaders?: Record<any, any>;
 }
 
+export interface Embed {
+  title?: string;
+  description?: string;
+  color?: number;
+  image?: { url: string };
+}
+
 export interface AnnouncementResponse {
   component: string;
   props: {
@@ -47,7 +54,7 @@ export interface Announcement {
   created_at: string;
   updated_at: string;
   user: User;
-  type: AnnouncementType;
+  type: AnnouncementType | null;
   subscriptions: Subscription[];
 }
 
