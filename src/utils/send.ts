@@ -14,6 +14,7 @@ export const sendToDiscord = async (embed: Embed): Promise<void> => {
 
       if (!res.ok) {
         console.error(res);
+        console.error(await res.json());
       }
     } catch (error) {
       console.error(error);
