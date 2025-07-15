@@ -46,6 +46,8 @@ export const scraperAndProcessAnnouncements = async (): Promise<void> => {
     // some error occured, while fetching or parsing the html or anything
     // we'll send logs on discord
 
+    console.log(error);
+
     if (error instanceof Error) {
       const embed = createErrorEmbed(error);
       await sendToDiscord(embed);
