@@ -1,0 +1,6 @@
+- When user logs in, he gets a session cookie and xsrf token (session seems to be important)
+- Every GET to page sets both new cookie which seem to expire after 2 hours. If not logged in, it sets both too but they not associated with login
+- Say user goes to root page,it checks if cookie is associated with a login. If not, redirects to login
+- Remeber me sets a cookie for an year and with that, all page return ok no matter other cookies sent
+- Checking after how much time cookie expires
+- Expires after 2 hrs ish
