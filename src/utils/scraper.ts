@@ -33,6 +33,8 @@ export const scraperAndProcessAnnouncements = async (): Promise<void> => {
       (a) => !cachedAnnouncementsIds.includes(a.id)
     );
 
+    console.log(newAnnouncements);
+
     console.log(`Fetched ${newAnnouncements.length} new announcements!`);
 
     for (const newAnnouncement of newAnnouncements) {
