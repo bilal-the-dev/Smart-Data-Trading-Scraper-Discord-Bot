@@ -4,3 +4,13 @@
 - Remeber me sets a cookie for an year and with that, all page return ok no matter other cookies sent
 - Checking after how much time cookie expires
 - Expires after 2 hrs ish
+
+
+After running for 3 days, wroked fine but suddenly got 403. They just implemented cf clearance stuff for everyone even logged out users. Needing the cf clearance on main request.
+https://www.zenrows.com/blog/cf-clearance#understanding-cloudflare
+
+
+Now after few hrs, they changed and now a post request to their cdn cf sets the cookie but it doesnt require. 
+
+
+I am gonna set a pupeeer instance to get cf clearance and then use that also set browser headers.

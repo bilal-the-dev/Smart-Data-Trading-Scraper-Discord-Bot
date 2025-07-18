@@ -30,6 +30,8 @@ Create a `.env` file in the root directory with the following values:
 ```env
 NODE_ENV='production' | 'development'
 DISCORD_WEBHOOK_URLS=https://discord.com/api/webhooks/xxx/your-webhook-id,https://discord.com/api/webhooks/x/xxxx-x
+DISCORD_ERROR_WEBHOOK_URL=https://discord.com/api/webhooks/xxx/your-webhook-id,https://discord.com/api/webhooks/x/xxxx-x
+USER_AGENT=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
 SMART_DATA_TRADING_URL=https://portal.smartdatatrading.com
 SMART_DATA_REMEMBER_COOKIE=remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiIxxxxx
 ```
@@ -41,6 +43,12 @@ SMART_DATA_REMEMBER_COOKIE=remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d
 
 - **`DISCORD_WEBHOOK_URLs`**
   The webhook URLs where the bot will send new announcements as Discord embeds.
+
+- **`DISCORD_WEBHOOK_URLs`**
+  The webhook URL where error log will be sent.
+
+- **`USER_AGENT`**
+  Default is fine
 
 - **`SMART_DATA_TRADING_URL`**
   The base URL to scrape announcements from (usually doesn't need to change).

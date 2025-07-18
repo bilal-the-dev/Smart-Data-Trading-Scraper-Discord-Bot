@@ -50,7 +50,7 @@ export const scraperAndProcessAnnouncements = async (): Promise<void> => {
 
     if (error instanceof Error) {
       const embed = createErrorEmbed(error);
-      await sendToDiscord(embed);
+      await sendToDiscord(embed, true);
     }
   }
 };
