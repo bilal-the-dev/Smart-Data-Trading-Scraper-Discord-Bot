@@ -47,8 +47,6 @@ const customFetch = async (options: customFetchOptions) => {
 
   const data = await res.text();
 
-  console.log(data);
-
   if (res.status !== 200) {
     console.log(res);
     console.log(data);
