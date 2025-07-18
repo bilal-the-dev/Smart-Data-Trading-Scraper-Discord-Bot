@@ -8,7 +8,6 @@ const customFetch = async (options: customFetchOptions) => {
     headers: {
       accept:
         "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-      "accept-encoding": "gzip, deflate, br, zstd",
       "accept-language": "en-US,en;q=0.9,fr;q=0.8",
       "cache-control": "no-cache",
       cookie: process.env.SMART_DATA_REMEMBER_COOKIE,
@@ -31,7 +30,7 @@ const customFetch = async (options: customFetchOptions) => {
       "sec-fetch-site": "same-origin",
       "sec-fetch-user": "?1",
       "upgrade-insecure-requests": "1",
-      "usr-agent": process.env.USER_AGENT,
+      "user-agent": process.env.USER_AGENT,
     },
     redirect: "manual", // so it doesnt redirect to /login page when cookie expires rather will return 302 causing to throw error
   };
@@ -47,6 +46,8 @@ const customFetch = async (options: customFetchOptions) => {
   const res = await fetch(url, requestOptions);
 
   const data = await res.text();
+
+  console.log(data);
 
   if (res.status !== 200) {
     console.log(res);
