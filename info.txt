@@ -14,3 +14,11 @@ Now after few hrs, they changed and now a post request to their cdn cf sets the 
 
 
 I am gonna set a pupeeer instance to get cf clearance and then use that also set browser headers.
+
+They removed cf clearance shit.
+
+Now, they are checking if request from browser (curl impersonte)
+
+if from browser, must have  a user agent. else 403
+
+if not like postman/fetch, must not have a real user agent. if we put postman 1.12 it works. but with real it doesnt. so shifted to curl impersonte.

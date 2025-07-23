@@ -33,7 +33,7 @@ const customFetch = async (options: customFetchOptions) => {
       "upgrade-insecure-requests": "1",
       "user-agent": process.env.USER_AGENT,
     },
-    redirect: "manual", // so it doesnt redirect to /login page when cookie expires rather will return 302 causing to throw error
+    // redirect: "manual", // so it doesnt redirect to /login page when cookie expires rather will return 302 causing to throw error
   };
 
   if (options.additionalHeaders)
@@ -65,6 +65,7 @@ const customFetch = async (options: customFetchOptions) => {
   }
 
   return response;
+
   // if (options.body) requestOptions.body = JSON.stringify(options.body);
 
   // const res = await fetch(url, requestOptions);
