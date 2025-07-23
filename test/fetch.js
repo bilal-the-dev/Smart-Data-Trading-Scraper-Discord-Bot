@@ -13,7 +13,7 @@ async function scrape(params) {
     process.env.SMART_DATA_TRADING_URL + "/alerts",
     {
       method: "GET",
-      headers: headers,
+      //   headers: headers,
       followRedirects: false,
     }
   );
