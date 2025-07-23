@@ -17,6 +17,7 @@
   "dependencies": {
     "cheerio": "^1.1.0",
     "cron": "^4.3.2",
+    "node-curl-impersonate": "^1.5.4",
     "puppeteer": "^24.14.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",

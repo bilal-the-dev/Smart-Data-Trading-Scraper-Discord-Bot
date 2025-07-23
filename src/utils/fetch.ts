@@ -1,9 +1,10 @@
 import { customFetchOptions } from "../typings/types.js";
+import CurlImpersonate from "node-curl-impersonate";
 
 const customFetch = async (options: customFetchOptions) => {
   const url = `${process.env.SMART_DATA_TRADING_URL}${options.path}`;
 
-  const requestOptions: RequestInit = {
+  const requestOptions = {
     method: options.method,
     headers: {
       accept:
@@ -41,21 +42,44 @@ const customFetch = async (options: customFetchOptions) => {
       ...options.additionalHeaders,
     };
 
-  if (options.body) requestOptions.body = JSON.stringify(options.body);
+  const curlImpersonate = new CurlImpersonate(url, {
+    method: "GET",
+    impersonate: "chrome-116",
+    headers: requestOptions.headers,
+    followRedirects: false,
+  });
 
-  const res = await fetch(url, requestOptions);
+  const curlResponse = await curlImpersonate.makeRequest();
 
-  const data = await res.text();
+  // extract the response data
+  const response = curlResponse.response;
+  const responseStatusCode = curlResponse.statusCode;
 
-  if (res.status !== 200) {
-    console.log(res);
-    console.log(data);
-    throw new Error(
-      `Bad response from the site (${res.status}). ${res.statusText}`
-    );
+  // if the server responded with a 4xx or 5xx error
+  if (
+    responseStatusCode &&
+    ["4", "5"].includes(responseStatusCode.toString()[0])
+  ) {
+    console.log(response);
+    throw new Error(`Bad response from the site (${responseStatusCode}).`);
   }
 
-  return data;
+  return response;
+  // if (options.body) requestOptions.body = JSON.stringify(options.body);
+
+  // const res = await fetch(url, requestOptions);
+
+  // const data = await res.text();
+
+  // if (res.status !== 200) {
+  //   console.log(res);
+  //   console.log(data);
+  //   throw new Error(
+  //     `Bad response from the site (${res.status}). ${res.statusText}`
+  //   );
+  // }
+
+  // return data;
 };
 
 export default customFetch;
